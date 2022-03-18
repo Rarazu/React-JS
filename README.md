@@ -15,6 +15,11 @@ Or
 npx create-react-app project_name
 ```
 
+## Install Bootstrap
+```
+npm install bootstrap
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
