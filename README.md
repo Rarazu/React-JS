@@ -20,6 +20,21 @@ npx create-react-app project_name
 npm install bootstrap
 ```
 
+## Router
+```
+npm install react-router-dom
+```
+
+## Backend to Frontend install at Frontend terminal
+Call at frontend
+```
+npm install axios
+```
+Call at backend
+```
+npm install cors
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
