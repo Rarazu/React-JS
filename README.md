@@ -25,12 +25,12 @@ npm install bootstrap
 npm install react-router-dom
 ```
 
-## Backend to Frontend install at Frontend terminal
-Call at frontend
+## Backend to Frontend 
+### at Frontend
 ```
 npm install axios
 ```
-Call at backend
+### at Backend
 ```
 npm install cors
 ```
