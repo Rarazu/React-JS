@@ -12,6 +12,7 @@ export default function Student(props){
     let [name, setName] = useState("")
     let [birthdate, setBirthdate] = useState("")
     let [action, setAction] = useState("")
+    let [editId, setEditId] = useState(true)
     
     useEffect(() => {
         // inisiasi data array students
@@ -35,6 +36,7 @@ export default function Student(props){
         setName("")
         setBirthdate("")
         setAction("insert")
+        setEditId(true)
     }
 
     //function saveStudent
@@ -52,6 +54,45 @@ export default function Student(props){
             temp.push(newData)
             // store to students again
             setStudents(temp)
+        } else if (action === `edit`) {
+            // store data students to temp
+            let temp = [...students]
+
+            // find index of selected data by id
+            let index = temp.findIndex(item => item.id === id)
+
+            // update data based on founded index 
+            temp[index].name = name
+            temp[index].birthdate = birthdate
+
+            // restore to student from temp
+            setStudents(temp)
+        }
+    }
+
+    let editStudent = item => {
+        // open the modal
+        modalStudent.show()
+        setId(item.id)
+        setName(item.name)
+        setBirthdate(item.birthdate)
+        setAction(`edit`)
+        setEditId(false)
+    }
+    
+    let deleteStudent = item => {
+        if (window.confirm(`Bener mau dihapus?`)) {
+            //store array students to temp
+            let temp = [...students]
+
+           //find index of selected data in array
+           let index = temp.findIndex(siswa => siswa.id === item.id)
+           
+           //delete ndata from array based foounded index
+           temp.splice(index, 1)
+
+           //restore ke array students
+           setStudents(temp)
         }
     }
 
@@ -78,6 +119,20 @@ export default function Student(props){
                                 <small>Birthdate</small>
                                 <h5>{item.birthdate}</h5>
                             </div>
+                            <div className="col-2">
+                                <small>Action</small> <br />
+                                {/** edit button */}
+                                <button className="btn btn-info mx-1"
+                                onClick={() => editStudent(item)}>
+                                    Edit
+                                </button>
+
+                                {/** delete button */}
+                                <button className="btn btn-danger mx-1"
+                                onClick={() => deleteStudent(item)}>
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     ))}
 
@@ -86,6 +141,24 @@ export default function Student(props){
                     onClick={() => addStudent()}>
                         Add
                     </button>
+
+                    {/**create dropdown using name */}
+                    <select>
+                        {students.map(sis => (
+                            <option value={sis.id}>
+                                {sis.name}
+                            </option>
+                        ))}
+                    </select>
+
+                     {/**create radio button */}
+                    {students.map(sis => (
+                        <div>
+                            <input type={`radio`} name={`name`}
+                            value={sis.id}/>
+                            <label>{sis.name} (Tgl : {sis.birthdate})</label>
+                        </div>
+                    ))}
                     
                      {/** modal component */}
                     <div className="modal" id="modal_student">
@@ -100,7 +173,14 @@ export default function Student(props){
                                     <input type={`number`} 
                                     className="form-control mb-2"
                                     value={id}
-                                    onChange={ev => setId(ev.target.value)}/>
+                                    onChange={ev => setId(ev.target.value)}
+                                    readOnly={!editId}/>
+                                    {/** saat add student maka nilai edit Id = true
+                                     * oleh karena itu readOnly harus bernilai false
+                                     * 
+                                     * saat add student maka nilai edit Id = false
+                                     * oleh karena itu readOnly harus bernilai true
+                                     */}
 
                                     Name
                                     <input type={`text`} 

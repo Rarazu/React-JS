@@ -3,15 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+import App from './App'
 import Student from './pages/Student';
+import Book from './pages/Book';
+import Buku from './pages/Buku';
+import Avarage from './pages/Avarage'
+import Market from './pages/Market';
 
 // load library bootstrap for styling
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle"
+import "@fortawesome/fontawesome-free/js/all" //bintang
 
 ReactDOM.render(
   <React.StrictMode>
-    <Student />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
