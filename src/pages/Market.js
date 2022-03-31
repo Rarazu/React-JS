@@ -42,13 +42,6 @@ export default function Market(props){
         return count
     }
 
-    let presentase = (hargaDasar, stokAwal) => {
-        let untung = keuntungan()
-        let modal = Number(hargaDasar * stokAwal)
-        let persen = Number(untung / modal * 100 / 100)
-        return persen
-    }
-
     return (
         <div className="col-lg-10 mx-auto">
             <div className="card-header bg-success text-warning text-center">
@@ -66,7 +59,7 @@ export default function Market(props){
                         hargaDasar={item.hargaDasar}
                         hargaJual={item.hargaJual}
                         keuntungan={keuntungan(item.hargaJual, item.terjual, item.hargaDasar, item.stokAwal)}
-                        presentase={presentase(item.hargaDasar, item.stokAwal)}>
+                        >
                     </MarketList>
                 ))}
             </div>

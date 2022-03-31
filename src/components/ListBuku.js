@@ -1,6 +1,7 @@
 export default function ListBuku(props){
     return (
-        <div className="row m-2 p-2" style={{border: `1px solid lightgreen`}}>
+        <div className="col-lg-10 mx-auto">
+            <div className="row m-2 p-2" style={{border: `1px solid lightgreen`}}>
             {/** cover area */}
             <div className="col-lg-3">
                 <img 
@@ -41,6 +42,7 @@ export default function ListBuku(props){
                         {`${props.progress}%`}     
                 </div>
             </div>
+        </div>
         </div>
         </div>
     )

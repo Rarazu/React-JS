@@ -18,7 +18,7 @@ function Balok(props) {
         setVolume(panjang * lebar * tinggi)
     }
     return (
-        <div className="card">
+        <div className="col-lg-10 mx-auto">
             <div className="card-header text-start">
                 {props.title}
             </div>

@@ -4,20 +4,25 @@ export default function Navbar() {
     return (
         <nav className="col-lg-10 navbar navbar-expand-lg navbar-light bg-light my-2 mx-auto">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Navbar</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li className="nav-item">
+                            <Link className="nav-link active" to="/avarage">Average</Link>
+                        </li>
                         <li className="nav-item">
                             <Link className="nav-link active" to="/balok">Balok</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/book">Book</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/buku">Buku</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/market">Market</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/student">Student</Link>
                         </li>
                     </ul>
                     <form className="d-flex">

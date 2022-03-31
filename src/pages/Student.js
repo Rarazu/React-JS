@@ -98,7 +98,7 @@ export default function Student(props){
 
     return(
         <div>
-            <div className="card col-10">
+            <div className="card col-10 mx-auto">
                 <div className="card-header bg-secondary">
                     <h3 className="text-white">List students</h3>
                 </div>
